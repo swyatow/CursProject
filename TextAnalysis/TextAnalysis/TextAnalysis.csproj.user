@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <ApplicationDefinition Update="App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="ResultPages\BarDiagramPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ResultPages\CircleDiagramPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ResultPages\TextResultPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ResultWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ResultPages\BarDiagramPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ResultPages\CircleDiagramPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ResultPages\TextResultPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ResultWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="TemplateDictionary.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,44 @@
+﻿<Window x:Class="TextAnalysis.ResultWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TextAnalysis"
+        mc:Ignorable="d"
+        Loaded="Window_Loaded"
+        Closed="Window_Closed"
+        Title="Отчет об анализе" MinWidth="800" MinHeight="450" Height="450" Width="800" 
+        Background="#FF19676D" FontFamily="Leto Text Sans Defect" WindowStartupLocation="CenterScreen" Icon="/icon.png">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="55*"/>
+            <RowDefinition Height="162*"/>
+        </Grid.RowDefinitions>
+        <DockPanel LastChildFill="True" Margin="0,92,0,0" Grid.RowSpan="2">
+            <Frame x:Name="frame" Margin="5" Source="" VerticalAlignment="Stretch" NavigationUIVisibility="Hidden"/>
+        </DockPanel>
+
+        <StackPanel>
+            <Label x:Name="AllCharsCountLabel" HorizontalAlignment="Center" Margin="5" VerticalAlignment="Top" 
+               Foreground="#FF44EEDC" FontSize="20"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Width="636" VerticalAlignment="Bottom">
+                <Button x:Name="ShowTextResultButton" Click="ShowTextResultButton_Click" Foreground="#FF44EEDC" 
+                    Template="{StaticResource MainMenuButtonTemplate}" HorizontalAlignment="Center" 
+                    VerticalAlignment="Center" Margin="10" FontSize="20">
+                    <TextBlock Padding="7" HorizontalAlignment="Center" VerticalAlignment="Center">Текстовый отчет</TextBlock>
+                </Button>
+                <Button x:Name="ShowBarDiagramButton" Click="ShowBarDiagramButton_Click" Foreground="#FF44EEDC" 
+                    Template="{StaticResource MainMenuButtonTemplate}" HorizontalAlignment="Center" 
+                    VerticalAlignment="Center" Margin="10" FontSize="20">
+                    <TextBlock Padding="7" HorizontalAlignment="Center" VerticalAlignment="Center">Столбчатая диаграмма</TextBlock>
+                </Button>
+                <Button x:Name="ShowCircleDiagramButton" Click="ShowCircleDiagramButton_Click" Foreground="#FF44EEDC" 
+                    Template="{StaticResource MainMenuButtonTemplate}" HorizontalAlignment="Center" 
+                    VerticalAlignment="Center" Margin="10" FontSize="20">
+                    <TextBlock Padding="7" HorizontalAlignment="Center" VerticalAlignment="Center">Круговая диаграмма</TextBlock>
+                </Button>
+            </StackPanel>
+        </StackPanel>
+
+    </Grid>
+</Window>

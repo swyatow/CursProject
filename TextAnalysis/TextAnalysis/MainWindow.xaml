@@ -1,0 +1,55 @@
+﻿<Window x:Class="TextAnalysis.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TextAnalysis"
+        mc:Ignorable="d"
+        Title="Главное меню" Height="508" Width="800" Background="#FF19676D" FontFamily="Leto Text Sans Defect" 
+        WindowStartupLocation="CenterScreen" MinWidth="607" MinHeight="595" Icon="/icon.png">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70*"/>
+            <RowDefinition Height="283*"/>
+            <RowDefinition Height="75*"/>
+            <RowDefinition Height="64*"/>
+        </Grid.RowDefinitions>
+        <Label x:Name="label" Content="Посимвольный анализ текста" Foreground="#FF44EEDC" 
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="36" FontWeight="Bold"/>
+
+        <Button x:Name="AttachFileButton" Click="AttachFileButton_Click" Margin="10" 
+                Template="{StaticResource MainMenuButtonTemplate}"  Grid.Row="2" VerticalAlignment="Center" Height="43" 
+                Background="#FF00A0B4" Foreground="#FF44EEDC" FontSize="20" VerticalContentAlignment="Center" 
+                HorizontalContentAlignment="Center" MinHeight="43" MinWidth="253" HorizontalAlignment="Right" 
+                Width="259" ToolTip="Прикрепить файл вместо записывания текста вручную">
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">Прикрепить текстовый файл</TextBlock>
+        </Button>
+        <Button x:Name="CancelFileButton" Click="CancelFileButton_Click" Margin="10" 
+                Template="{StaticResource MainMenuButtonTemplate}" HorizontalAlignment="Left"  
+                Grid.Row="3" VerticalAlignment="Center" Height="43" Width="260" Background="#FF00A0B4" 
+                Foreground="#FF44EEDC" FontSize="20" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" 
+                MinWidth="260" MinHeight="43" ToolTip="Удалить прикрепленный файл">
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">Открепить текстовый файл</TextBlock>
+        </Button>
+        <Button x:Name="ClearTextAreaButton" Click="ClearTextAreaButton_Click" Margin="10" 
+                Template="{StaticResource MainMenuButtonTemplate}" HorizontalAlignment="Left"  Grid.Row="2" 
+                VerticalAlignment="Center" Height="43" Width="200" Background="#FF00A0B4" Foreground="#FF44EEDC" 
+                FontSize="20" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" MinWidth="200" 
+                MinHeight="43">
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" ToolTip="Удалить весь введенный текст">Очистить поле ввода</TextBlock>
+        </Button>
+        <Button x:Name="ExecuteButton" Click="ExecuteButton_Click" Margin="10" 
+                Template="{StaticResource MainMenuButtonTemplate}" HorizontalAlignment="Right"  Grid.Row="3" 
+                VerticalAlignment="Center" Height="43" Width="160" Background="#FF00A0B4" Foreground="#FF44EEDC" 
+                FontSize="20" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" 
+                ToolTip="Запустить анализ">
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">Выполнить</TextBlock>
+        </Button>
+        <DockPanel LastChildFill="True" Grid.Row="1" Margin="0">
+            <TextBox x:Name="InputTextBox" Margin="5" TextWrapping="Wrap" Background="#FF00A0B4" 
+                     Foreground="#FF44EEDC" ToolTip="Введите здесь текст, который необходимо проанализировать" 
+                     AcceptsReturn="True" FontSize="16"/>
+        </DockPanel>
+    </Grid>
+
+</Window>
