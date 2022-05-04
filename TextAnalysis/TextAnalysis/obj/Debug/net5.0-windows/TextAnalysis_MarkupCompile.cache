@@ -4,15 +4,15 @@
 winexe
 C#
 .cs
-C:\Users\slava\Desktop\доки\ДЗ\Курсовик\TextAnalysis\TextAnalysis\obj\Debug\net5.0-windows\
+C:\Users\slava\Desktop\доки\ДЗ\Курсовик\CursProject\TextAnalysis\TextAnalysis\obj\Debug\net5.0-windows\
 TextAnalysis
 none
 false
 TRACE;DEBUG;NET;NET5_0;NETCOREAPP
-C:\Users\slava\Desktop\доки\ДЗ\Курсовик\TextAnalysis\TextAnalysis\App.xaml
+C:\Users\slava\Desktop\доки\ДЗ\Курсовик\CursProject\TextAnalysis\TextAnalysis\App.xaml
 6-642178851
 
-7-1171216961
+111906879073
 2021211560773
 MainWindow.xaml;ResultPages\BarDiagramPage.xaml;ResultPages\CircleDiagramPage.xaml;ResultPages\TextResultPage.xaml;ResultWindow.xaml;TemplateDictionary.xaml;
 

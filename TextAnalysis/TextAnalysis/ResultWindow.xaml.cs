@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,28 +24,37 @@ namespace TextAnalysis
         public int SymbolsCount;
         public Dictionary<char, int> symbols = new Dictionary<char, int>();
         private string text;
-        public ResultWindow(string text)
+        private string filePath;
+
+        public ResultWindow(string text, string filePath)
         {
             InitializeComponent();
             this.text = text.ToLower();
+            this.filePath = filePath;
+            if(filePath != String.Empty)
+            {
+                this.Title = "Отчет об анализе текста из файла: " + filePath;
+            }
+            else
+                this.Title = "Отчет об анализе текста из текстового поля";
         }
 
         private void ShowTextResultButton_Click(object sender, RoutedEventArgs e)
         {
-            TextResult textResult = new TextResult(symbols,SymbolsCount);
+            TextResult textResult = new TextResult(symbols, SymbolsCount);
             frame.Content = textResult;
         }
 
         private void ShowBarDiagramButton_Click(object sender, RoutedEventArgs e)
         {
-            CircleDiagramPage circleDiagramPage = new CircleDiagramPage(symbols, SymbolsCount);
-            frame.Content = circleDiagramPage;
+            BarDiagramPage barDiagramPage = new BarDiagramPage(symbols, SymbolsCount);
+            frame.Content = barDiagramPage;
         }
 
         private void ShowCircleDiagramButton_Click(object sender, RoutedEventArgs e)
         {
-            //BarDiagramPage barDiagramPage = new BarDiagramPage(symbols, SymbolsCount);
-            //frame.Content = barDiagramPage;
+            CircleDiagramPage circleDiagramPage = new CircleDiagramPage(symbols, SymbolsCount);
+            frame.Content = circleDiagramPage;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -63,10 +73,37 @@ namespace TextAnalysis
                     else symbols.Add(symbol, 1);
                 }
             }
-            symbols.OrderBy(pair => pair.Key);
-            AllCharsCountLabel.Content = "Общее количество: " + SymbolsCount + " символов. Пробельных символов: " + whiteSpaceCount + $" ({Math.Round((float)whiteSpaceCount/(float)SymbolsCount*100, 3)}%)";
+            symbols = symbols.OrderByDescending(pair => pair.Value).ToDictionary(pair => pair.Key, pair => pair.Value);
+            AllCharsCountLabel.Content = "Общее количество: " 
+                + SymbolsCount 
+                + " символов. Пробельных символов: " 
+                + whiteSpaceCount + $" ({Math.Round((float)whiteSpaceCount/(float)SymbolsCount*100, 3)}%)";
+            CreateReport();
             TextResult textResult = new TextResult(symbols, SymbolsCount);
             frame.Content = textResult;
+        }
+
+        private void CreateReport()
+        {
+            DateTime today = DateTime.Now;
+            string reportName = $"report_{today.Day}.{today.Month}.{today.Year}_{today.Hour}.{today.Minute}.{today.Second}";
+            string reportPath = @$"Reports\{reportName}.txt";
+
+            using (FileStream writer = File.Create(reportPath))
+            {
+                string reportText = $"{this.Title}\n";
+                reportText += $"{AllCharsCountLabel.Content}\n";
+                reportText += "-------------------------------------------------------\n";
+                int counter = 1;
+                foreach(var symbol in symbols)
+                {
+                    reportText += $"{counter}) {symbol.Key} - {symbol.Value} - {Math.Round((float)symbol.Value / (float)SymbolsCount * 100, 3)}%\n";
+                    counter++;
+                }
+
+                byte[] reportTextByteArray = new UTF8Encoding(true).GetBytes(reportText);
+                writer.Write(reportTextByteArray, 0,reportTextByteArray.Length);
+            }
         }
 
         private void Window_Closed(object sender, EventArgs e)

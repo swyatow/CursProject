@@ -9,8 +9,10 @@
       Title="BarDiagramPage">
 
     <Grid>
-        <WindowsFormsHost HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Margin="7">
-            
-        </WindowsFormsHost>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid Margin="7" x:Name="PaintingSurface" Background="LightGray" MouseUp="PaintingSurface_MouseUp" Grid.Column="1" ToolTip="Нажмите, чтобы отобразить график"/>
     </Grid>
 </Page>

@@ -23,6 +23,7 @@ namespace TextAnalysis
     public partial class MainWindow : Window
     {
         private string TextForAnalysis = String.Empty;
+        private string filePath = String.Empty;
 
         public MainWindow()
         {
@@ -52,17 +53,16 @@ namespace TextAnalysis
                 MessageBoxButton.OKCancel, 
                 MessageBoxImage.Question) == MessageBoxResult.OK)
             {
-                TextForAnalysis = String.Empty;
-                InputTextBox.Text = String.Empty;
-                InputTextBox.IsReadOnly = false;
+                ClearInfo();
             }
         }
 
         private void ExecuteButton_Click(object sender, RoutedEventArgs e)
         {
-            if(InputTextBox.Text != String.Empty)
+            // Присутствует ли текст тли файл
+            if (InputTextBox.Text != String.Empty)
             {
-                if(TextForAnalysis == String.Empty)
+                if (TextForAnalysis == String.Empty)
                 {
                     TextForAnalysis = InputTextBox.Text;
                 }
@@ -75,11 +75,18 @@ namespace TextAnalysis
                 MessageBoxImage.Warning);
                 return;
             }
-            ResultWindow resultWindow = new ResultWindow(TextForAnalysis);
+            ResultWindow resultWindow = new ResultWindow(TextForAnalysis, filePath);
             resultWindow.Show();
             this.Hide();
+            ClearInfo();
+        }
+
+        private void ClearInfo()
+        {
             InputTextBox.Text = String.Empty;
             TextForAnalysis = String.Empty;
+            InputTextBox.IsReadOnly = false;
+            filePath = String.Empty;
         }
 
         private void AttachFileButton_Click(object sender, RoutedEventArgs e)
@@ -96,6 +103,7 @@ namespace TextAnalysis
                 {
                     TextForAnalysis = reader.ReadToEnd();
                 }
+                filePath = openFileDialog.FileName;
                 InputTextBox.Text = "Вы прикрепили текстовый файл!\n Путь к файлу:\n" + openFileDialog.FileName;
                 InputTextBox.IsReadOnly = true;
             }
