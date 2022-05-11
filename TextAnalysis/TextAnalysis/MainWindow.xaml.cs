@@ -1,19 +1,7 @@
 ﻿using Microsoft.Win32;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace TextAnalysis
 {
@@ -59,7 +47,7 @@ namespace TextAnalysis
 
         private void ExecuteButton_Click(object sender, RoutedEventArgs e)
         {
-            // Присутствует ли текст тли файл
+            // Присутствует ли текст или файл
             if (InputTextBox.Text != String.Empty)
             {
                 if (TextForAnalysis == String.Empty)

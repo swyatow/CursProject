@@ -1,0 +1,5 @@
+C:\Users\slava\Desktop\доки\ДЗ\Курсовик\РЕЛИЗ\TextAnalysis.exe
+C:\Users\slava\Desktop\доки\ДЗ\Курсовик\РЕЛИЗ\TextAnalysis.dll
+C:\Users\slava\Desktop\доки\ДЗ\Курсовик\РЕЛИЗ\TextAnalysis.deps.json
+C:\Users\slava\Desktop\доки\ДЗ\Курсовик\РЕЛИЗ\TextAnalysis.runtimeconfig.json
+C:\Users\slava\Desktop\доки\ДЗ\Курсовик\РЕЛИЗ\TextAnalysis.pdb

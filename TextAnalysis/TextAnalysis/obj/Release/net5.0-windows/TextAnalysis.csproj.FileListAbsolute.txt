@@ -30,3 +30,4 @@ C:\Users\slava\Desktop\доки\ДЗ\Курсовик\CursProject\TextAnalysis\T
 C:\Users\slava\Desktop\доки\ДЗ\Курсовик\CursProject\TextAnalysis\TextAnalysis\obj\Release\net5.0-windows\TextAnalysis.pdb
 C:\Users\slava\Desktop\доки\ДЗ\Курсовик\CursProject\TextAnalysis\TextAnalysis\obj\Release\net5.0-windows\TextAnalysis.genruntimeconfig.cache
 C:\Users\slava\Desktop\доки\ДЗ\Курсовик\CursProject\TextAnalysis\TextAnalysis\obj\Release\net5.0-windows\ref\TextAnalysis.dll
+C:\Users\slava\Desktop\доки\ДЗ\Курсовик\CursProject\TextAnalysis\TextAnalysis\obj\Release\net5.0-windows\TextAnalysis_Content.g.cs
