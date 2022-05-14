@@ -24,6 +24,17 @@ namespace TextAnalysis.ResultPages
 
         private void PaintingSurface_MouseUp(object sender, MouseButtonEventArgs e)
         {
+            CreateBarGraphics();
+            PaintingSurface.SizeChanged += PaintingSurface_SizeChanged;
+        }
+
+        private void PaintingSurface_SizeChanged(object sender, System.Windows.SizeChangedEventArgs e)
+        {
+            CreateBarGraphics();
+        }
+
+        private void CreateBarGraphics()
+        {
             // Принудительно обновляем размеры контейнера для графика
             PaintingSurface.UpdateLayout();
             PaintingSurface.ToolTip = null;

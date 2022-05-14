@@ -22,7 +22,7 @@ namespace Charts
             ChartBg.SizeChanged += ChartBg_SizeChanged;
         }
 
-        private void ChartBg_SizeChanged(object sender, SizeChangedEventArgs e)
+        public void ChartBg_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             Width = e.NewSize.Width - (PaddingChart * 2);
             Height = e.NewSize.Height * factor;

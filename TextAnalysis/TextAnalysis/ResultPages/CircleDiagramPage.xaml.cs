@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using Charts;
@@ -23,9 +25,21 @@ namespace TextAnalysis.ResultPages
 
         private void PaintingSurface_MouseUp(object sender, MouseButtonEventArgs e)
         {
+            CreateCircleGraphics();
+            PaintingSurface.SizeChanged += PaintingSurface_SizeChanged;
+
+        }
+
+        private void PaintingSurface_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            CreateCircleGraphics();
+        }
+
+        private void CreateCircleGraphics()
+        {
             // Принудительно обновляем размеры контейнера для диаграммы
             PaintingSurface.UpdateLayout();
-            PaintingSurface.ToolTip = "Нажмите, чтобы перерисовать график, после изменения размера окна";
+            PaintingSurface.ToolTip = null;
 
             chart.ChartBg.Children.Clear();
             chart.PathList.Clear();

@@ -53,7 +53,7 @@ namespace Charts
             Rectangle bar = new()
             {
                 Stroke = Brushes.Black,
-                Fill = new SolidColorBrush(Color.FromArgb(255, (byte)random.Next(0, 256), (byte)random.Next(0, 256), (byte)random.Next(0, 256))),
+                Fill = new SolidColorBrush(Colors.Gray),
                 Height = height,
                 Width = width,
                 StrokeThickness = 0.5,
